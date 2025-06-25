@@ -23,6 +23,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- Flyway db-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>10.16.0</version>
+        </dependency>
+
         <!-- JAX-RS API for RESTful services -->
         <dependency>
             <groupId>javax.ws.rs</groupId>
@@ -75,7 +82,20 @@
               <groupId>org.eclipse.jetty</groupId>
               <artifactId>jetty-maven-plugin</artifactId>
               <version>9.4.53.v20231009</version>
-        </plugin>    
+        </plugin> 
+        <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>9.22.3</version>
+            <configuration>
+                <url>jdbc:postgresql://localhost:5432/mydb</url>
+                <user>abdaziz</user>
+                <password>P@ssw0rd</password>
+                <schemas>
+                    <schema>public</schema>
+                </schemas>
+            </configuration>   
+        </plugin>   
         </plugins>
     </build>
 </project>
